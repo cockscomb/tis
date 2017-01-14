@@ -26,3 +26,13 @@ $ tis select com.apple.inputmethod.Kotoeri.Japanese
 $ tis current
 com.apple.inputmethod.Kotoeri.Japanese
 ```
+
+## Installation
+
+### Building yourself
+
+```
+$ cd tis
+$ swift build -c release
+$ cp .build/release/tis ~/bin/tis
+```
