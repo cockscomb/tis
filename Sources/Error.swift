@@ -29,7 +29,7 @@ extension TextInputSourcesError: CustomStringConvertible {
         case .cannotOverrideKeyboardLayout:
             return "Cannot override the keyboard layout"
         case let .unknown(status):
-            return "Unknown error (status: \(status)) has occured"
+            return "Unknown error (status: \(status)) occurred"
         }
     }
 }
