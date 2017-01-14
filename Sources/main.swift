@@ -8,8 +8,11 @@ let main = Group {
     }
 
     $0.command("list", description: "List enabled input sources") {
-        for inputSource in TextInputSources.find() {
-            print(inputSource.id)
+        for inputSource in TextInputSources.find(filtering: [
+            .category: InputSource.Category.keyboard,
+            .kind: InputSource.Kind.keyboardInputMode,
+            ]) {
+                print(inputSource.id)
         }
     }
 
