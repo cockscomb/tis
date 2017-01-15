@@ -16,7 +16,10 @@ let main = Group {
         }
     }
 
-    $0.command("select", description: "Select an input source") { (id: String) in
+    $0.command("select",
+               Argument<String>("id", description: "Input source ID"),
+               description: "Select an input source")
+    { (id) in
         guard let inputSource = TextInputSources.find(filtering: [.id: id]).first else {
             throw CUIError.inputSourceIsNotFound(forID: id)
         }
