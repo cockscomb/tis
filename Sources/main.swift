@@ -2,9 +2,16 @@ import TextInputSources
 import Commander
 
 let main = Group {
-    $0.command("current", description: "Print the current selected input source") {
+    $0.command("current",
+               Flag("name", description: "Print input source name instead of ID"),
+               description: "Print the current selected input source")
+    { (name) in
         let inputSource = TextInputSources.current
-        print(inputSource.id)
+        if name {
+            print(inputSource.localizedName)
+        } else {
+            print(inputSource.id)
+        }
     }
 
     $0.command("list", description: "List enabled input sources") {
